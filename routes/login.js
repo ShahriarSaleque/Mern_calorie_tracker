@@ -32,7 +32,23 @@ router.post(
           if (err) throw err;
           else {
             if (isMatch) {
-              return res.send("Successful");
+              //sign and send token
+              const payload = {
+                user: {
+                  id: user.id
+                }
+              };
+              jwt.sign(
+                payload,
+                config.get("jwtSecret"),
+                { expiresIn: 36000 },
+                (err, token) => {
+                  if (err) throw err;
+                  else {
+                    res.send(token);
+                  }
+                }
+              );
             } else {
               return res.send("Password did not match");
             }
