@@ -13,8 +13,10 @@
     "nodemon": "^1.19.4"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "config": "^3.2.4",
     "express": "^4.17.1",
+    "express-validator": "^6.2.0",
     "mongoose": "^5.7.10"
   }
 }
